@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f7ffdf"><title>ZipBasket — Everyday essentials, delivered</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#"><span class="brand-mark">z</span><span><b id="storeName">ZipBasket</b><small id="cityLabel">Quick delivery in your area</small></span></a>
+  <div class="delivery"><span>📍</span><div><b>Delivering to</b><small id="deliveryCity">Your City</small></div></div>
+  <label class="search"><span>⌕</span><input id="searchInput" placeholder="Search for milk, snacks, fruits..." aria-label="Search products"></label>
+  <button class="admin-link" id="adminOpen">Admin</button>
+  <button class="cart-button" id="cartOpen"><span>🛒</span> My Cart <b id="cartCount">0</b></button>
+</header>
+<main>
+  <section class="hero">
+    <div class="hero-copy"><span class="eyebrow">YOUR NEIGHBOURHOOD STORE, ONLINE</span><h1>Everyday essentials.<br><em>Right on time.</em></h1><p>Fresh picks, pantry favourites and daily needs — delivered to your door.</p><button class="primary" id="shopNow">Shop essentials <span>→</span></button><div class="hero-points"><span>✓ Easy ordering</span><span>✓ Local delivery</span><span>✓ COD available</span></div></div>
+    <div class="hero-art"><div class="sun"></div><div class="hero-bag">🛍️</div><div class="float f1">🥑</div><div class="float f2">🥛</div><div class="float f3">🍞</div><div class="delivery-tag">⚡ Quick local delivery</div></div>
+  </section>
+  <section class="benefits"><div><span>⚡</span><b id="etaText">20–35 min</b><small>Estimated delivery</small></div><div><span>🥬</span><b>Daily essentials</b><small>For your everyday needs</small></div><div><span>💳</span><b>Simple checkout</b><small>COD or UPI</small></div></section>
+  <section class="shop-section" id="shop"><div class="section-heading"><div><span class="eyebrow">HANDPICKED FOR YOU</span><h2>Shop by category</h2></div><p>Little things that make your day easier.</p></div><div class="categories" id="categories"></div><div class="section-heading products-heading"><div><span class="eyebrow">THE GOOD STUFF</span><h2 id="productHeading">Popular near you</h2></div><span id="productCount" class="muted"></span></div><div id="productGrid" class="product-grid"><div class="loading">Loading products…</div></div></section>
+  <section class="bottom-banner"><div><span class="eyebrow">LOCAL LOVE, EVERY DAY</span><h2>Your list. Your neighbourhood.<br>One easy order.</h2><p>Find your everyday favourites without the extra trip.</p></div><div class="banner-emoji">🧺</div></section>
+</main>
+<footer><a class="brand footer-brand" href="#"><span class="brand-mark">z</span><b id="footerName">ZipBasket</b></a><span>Made for your neighbourhood ♥</span><button class="text-button" id="trackOpen">Track an order</button></footer>
+<div id="toast" class="toast" role="status"></div>
+<div id="cartDrawer" class="drawer-backdrop hidden"><aside class="drawer"><div class="drawer-head"><div><span class="eyebrow">YOUR BASKET</span><h2>My cart <span id="drawerCount">(0)</span></h2></div><button class="icon-button" data-close="cartDrawer">✕</button></div><div id="cartItems" class="cart-items"></div><div id="cartFooter" class="cart-footer"></div></aside></div>
+<div id="checkoutModal" class="modal-backdrop hidden"><section class="modal"><div class="modal-head"><div><span class="eyebrow">ALMOST THERE</span><h2>Checkout</h2></div><button class="icon-button" data-close="checkoutModal">✕</button></div><div id="checkoutSummary"></div><form id="checkoutForm" class="form-grid"><label>Full name<input name="customerName" required maxlength="100" placeholder="Your name"></label><label>Phone number<input name="phone" required inputmode="tel" maxlength="16" placeholder="10-digit mobile number"></label><label class="full">Delivery address<textarea name="address" required maxlength="500" rows="3" placeholder="House/flat, street, landmark, area"></textarea></label><label class="full">Delivery notes (optional)<input name="notes" maxlength="300" placeholder="e.g. Call on arrival"></label><fieldset class="full payment-options"><legend>Payment method</legend><label><input type="radio" name="paymentMethod" value="COD" checked> Cash on Delivery</label><label><input type="radio" name="paymentMethod" value="UPI"> UPI app</label></fieldset><p class="small-note full">UPI opens your payment app if configured. This starter cannot verify UPI payments automatically.</p><button class="primary full" type="submit" id="placeOrder">Place order · <span id="checkoutTotal">₹0</span></button></form></section></div>
+<div id="successModal" class="modal-backdrop hidden"><section class="modal success-modal"><div class="success-icon">✓</div><span class="eyebrow">ORDER RECEIVED</span><h2>You're all set!</h2><p id="successText">Your order has been placed.</p><div id="upiAction"></div><button class="primary full" id="successDone">Continue shopping</button></section></div>
+<div id="trackModal" class="modal-backdrop hidden"><section class="modal"><div class="modal-head"><div><span class="eyebrow">ORDER UPDATES</span><h2>Track your order</h2></div><button class="icon-button" data-close="trackModal">✕</button></div><form id="trackForm"><label>Order ID<input name="orderId" required placeholder="e.g. ZB12345678"></label><button class="primary full" type="submit">Check status</button></form><div id="trackResult"></div></section></div>
+<div id="adminModal" class="modal-backdrop hidden"><section class="modal admin-modal"><div class="modal-head"><div><span class="eyebrow">STORE MANAGEMENT</span><h2>Admin panel</h2></div><button class="icon-button" data-close="adminModal">✕</button></div><div id="adminLogin"><p class="muted">Sign in to manage products, orders and local delivery settings.</p><form id="adminLoginForm"><label>Admin password<input type="password" name="password" required autocomplete="current-password"></label><button class="primary full" type="submit">Sign in</button></form></div><div id="adminPanel" class="hidden"><div class="admin-tabs"><button class="tab active" data-tab="products">Products</button><button class="tab" data-tab="orders">Orders</button><button class="tab" data-tab="settings">Delivery settings</button><button class="tab" id="adminLogout">Log out</button></div><div id="adminContent"></div></div></section></div>
+<script src="/app.js"></script>
+</body></html>
